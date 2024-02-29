@@ -4,8 +4,11 @@ export const UserContext = createContext(null);
 
 export const UserProvider = ({ children }) => {
   const [user, setUser] = useState(() => {
-    const savedUser = localStorage.getItem("user");
-    return savedUser ? JSON.parse(savedUser) : { name: "John Doe" };
+    const savedUser = JSON.parse(localStorage.getItem("user"));
+
+    return savedUser && savedUser.name !== ""
+      ? savedUser
+      : { name: "John Doe" };
   });
 
   useEffect(() => {

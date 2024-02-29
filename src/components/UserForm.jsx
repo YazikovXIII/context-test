@@ -1,5 +1,6 @@
 import React, { useState, useContext } from "react";
 import { UserContext } from "../lib/UserContext";
+import { Cleaner } from "./Cleaner";
 
 const UserForm = () => {
   const [name, setName] = useState("");
@@ -8,6 +9,7 @@ const UserForm = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     setUser({ name });
+    setName("");
   };
 
   return (
@@ -21,6 +23,7 @@ const UserForm = () => {
         />
         <button type="submit">Update Name</button>
       </form>
+      <Cleaner />
     </div>
   );
 };
