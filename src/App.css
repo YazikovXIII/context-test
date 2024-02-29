@@ -50,3 +50,7 @@
     transform: rotate(360deg);
   }
 }
+
+.addChanges {
+  display: inline;
+}
